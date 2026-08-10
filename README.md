@@ -21,16 +21,16 @@ git submodule add https://github.com/Virgola-Limited/virgola_brand_assets.git ve
 Each consuming app has its own `bin/sync-brand-assets` (or `bin/sync_brand_assets`)
 script that runs `git submodule update --init --remote` then copies the files
 to that app's expected paths/filenames (naming conventions differ per app —
-e.g. `favicon.svg` vs `icon.svg`). Run it locally after pulling, and it also
-runs automatically as part of the app's build (npm `prebuild` hook / Dockerfile
-`RUN` step) so deploys never depend on the host platform's git-submodule
-support.
+e.g. `favicon.svg` vs `icon.svg`). It's a manual dev-time tool, not a build
+step: the copied files are committed as plain files in each app, so builds
+and deploys never depend on git/network access to this submodule (handy since
+CI/Docker build contexts often exclude `.git`, and third-party build platforms
+don't always recurse submodules on checkout).
 
 To pick up a brand update in a consuming app:
 
 ```bash
-git submodule update --remote vendor/virgola-brand
-bin/sync-brand-assets   # or bin/sync_brand_assets
+bin/sync-brand-assets   # or bin/sync_brand_assets — pulls latest + copies files
 git add -A && git commit -m "chore: sync brand assets"
 ```
 
