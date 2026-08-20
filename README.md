@@ -1,7 +1,7 @@
 # virgola_brand_assets
 
 Canonical source for Virgola brand assets shared across apps (virgola.co.nz,
-seo_manager, ...): favicon/logo mark and the `theme.css` design tokens.
+virgola_web_tools, ...): favicon/logo mark and the `theme.css` design tokens.
 
 ## Contents
 
