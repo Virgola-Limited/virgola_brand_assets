@@ -19,6 +19,17 @@
   --color-accent: #9c6b4f;
   --color-good: #5f9a6c;
   --color-warn: #b98a3d;
+
+  /* print + social additions */
+  --color-accent-light: #d9a583; /* accent on ink grounds */
+  --color-ink-soft: #3d372f;
+  --color-on-ink: #b3a89d;
+
+  --leaflet-margin-y: 16mm;
+  --leaflet-margin-x: 14mm;
+  --social-pad-square: 88px;
+  --social-pad-story: 96px;
+  --social-safe-bottom: 180px;
 }
 
 @layer components {
@@ -108,5 +119,45 @@
   .field-underline:focus {
     outline: none;
     border-bottom-color: var(--color-accent);
+  }
+
+  .price-block {
+    background: var(--color-ink);
+    color: var(--color-bg);
+    border-radius: 4px;
+    padding: 14px 16px;
+  }
+  .price-block__figure {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    line-height: 1;
+  }
+  .price-block__unit {
+    font-family: var(--font-mono);
+    color: var(--color-on-ink);
+  }
+
+  .qr-pair {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .qr-pair img {
+    border: 1px solid var(--color-border);
+    flex-shrink: 0;
+  }
+
+  .social-canvas {
+    background: var(--color-bg);
+    font-family: var(--font-serif);
+    color: var(--color-ink);
+    box-sizing: border-box;
+  }
+  .social-canvas--ink {
+    background: var(--color-ink);
+    color: var(--color-bg);
+  }
+  .social-canvas--ink .eyebrow {
+    color: var(--color-accent-light);
   }
 }
