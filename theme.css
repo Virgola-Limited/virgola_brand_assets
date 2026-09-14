@@ -14,11 +14,12 @@
   --color-bg: #f7f3ee;
   --color-ink: #2b2621;
   --color-paper: #fdfcfb;
-  --color-muted: #7a7169;
+  --color-muted: #665d55;
   --color-border: #cec5ba;
-  --color-accent: #9c6b4f;
+  --color-accent: #85563d;
   --color-good: #5f9a6c;
   --color-warn: #b98a3d;
+  --color-focus: #005fcc;
 
   /* print + social additions */
   --color-accent-light: #d9a583; /* accent on ink grounds */
@@ -61,6 +62,12 @@
   }
   .nav-link:hover::after {
     transform: scaleX(1);
+  }
+
+  :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 5px var(--color-bg);
   }
 
   .btn-pill {
@@ -119,6 +126,11 @@
   .field-underline:focus {
     outline: none;
     border-bottom-color: var(--color-accent);
+  }
+  .field-underline:focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 4px;
+    box-shadow: 0 0 0 6px var(--color-bg);
   }
 
   .price-block {
